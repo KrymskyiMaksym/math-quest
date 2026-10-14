@@ -128,6 +128,39 @@ function setFeedback(text, type) {
   feedback.append(icon, label);
 }
 
+const PIXEL_SIZE = 6;
+
+function buildPixelGrid(revealBtn) {
+  const mask = revealBtn.querySelector(".reveal-mask");
+  mask.querySelector(".pixel-grid")?.remove();
+
+  const { width, height } = mask.getBoundingClientRect();
+  if (!width || !height) return;
+
+  const cols = Math.max(1, Math.round(width / PIXEL_SIZE));
+  const rows = Math.max(1, Math.round(height / PIXEL_SIZE));
+
+  const grid = document.createElement("span");
+  grid.className = "pixel-grid";
+  grid.style.setProperty("--cols", cols);
+  grid.style.setProperty("--rows", rows);
+
+  const fragment = document.createDocumentFragment();
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      const px = document.createElement("span");
+      px.className = "px";
+      px.style.setProperty("--l", `${(64 + Math.random() * 24).toFixed(0)}%`);
+      px.style.setProperty("--d", `${(Math.random() * 2.6).toFixed(2)}s`);
+      px.style.setProperty("--i", `${Math.round(col * 14 + row * 22 + Math.random() * 70)}ms`);
+      fragment.appendChild(px);
+    }
+  }
+
+  grid.appendChild(fragment);
+  mask.appendChild(grid);
+}
+
 function renderProgressDots(target, stageNumber, { solved = false } = {}) {
   target.innerHTML = "";
   STAGES.forEach((_, i) => {
@@ -216,6 +249,7 @@ function checkAnswer(stageNumber) {
       finalLocation.textContent = currentStage.location;
       finalReveal.classList.remove("revealed");
       showScreen(finalScreen);
+      requestAnimationFrame(() => buildPixelGrid(finalReveal));
     } else {
       successHint.textContent = currentStage.successHint;
       successRiddle.textContent = currentStage.riddle;
@@ -223,6 +257,7 @@ function checkAnswer(stageNumber) {
       successReveal.classList.remove("revealed");
       renderProgressDots(successDots, stageNumber, { solved: true });
       showScreen(successScreen);
+      requestAnimationFrame(() => buildPixelGrid(successReveal));
     }
     return;
   }

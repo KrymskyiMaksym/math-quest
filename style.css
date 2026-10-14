@@ -484,11 +484,46 @@ body {
 }
 
 .reveal-mask {
+  --px-h: 252;
+  --px-s: 92%;
   position: relative;
   display: inline-block;
   padding: 2px 4px;
   overflow: hidden;
   border-radius: 6px;
+}
+
+.location--gold .reveal-mask {
+  --px-h: 38;
+  --px-s: 88%;
+}
+
+.pixel-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+  pointer-events: none;
+}
+
+.px {
+  background: hsl(var(--px-h) var(--px-s) var(--l));
+  animation: px-flicker 2.6s ease-in-out infinite;
+  animation-delay: var(--d);
+  transition: opacity 0.42s ease, transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal.revealed .px {
+  animation: none;
+  opacity: 0;
+  transform: scale(0.2) translateY(-3px);
+  transition-delay: var(--i);
+}
+
+@keyframes px-flicker {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.14); }
 }
 
 .reveal-text {
@@ -501,35 +536,23 @@ body {
   transition: filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Мозаїка поверх розмитого тексту — ефект «запікселено» */
-.reveal-mask::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(90deg, rgba(124, 92, 255, 0.3) 0 5px, transparent 5px 10px),
-    repeating-linear-gradient(0deg, rgba(124, 92, 255, 0.3) 0 5px, transparent 5px 10px);
-  transition: opacity 0.45s ease;
-  pointer-events: none;
-}
-
-/* Промінь сканування, поки відповідь прихована */
+/* Промінь сканування поверх пікселів, поки відповідь прихована */
 .reveal-mask::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, transparent 25%, rgba(255, 255, 255, 0.75) 50%, transparent 75%);
-  background-size: 240% 100%;
-  animation: sweep 2.3s linear infinite;
-  transition: opacity 0.35s ease;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  background-size: 260% 100%;
+  animation: sweep 2.8s linear infinite;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
 .reveal.revealed .reveal-text {
   filter: none;
+  transition-delay: 0.15s;
 }
 
-.reveal.revealed .reveal-mask::before,
 .reveal.revealed .reveal-mask::after {
   opacity: 0;
   animation: none;
@@ -544,12 +567,6 @@ body {
 
 .location--gold .reveal-hint {
   color: #b07b16;
-}
-
-.location--gold .reveal-mask::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(200, 140, 30, 0.32) 0 5px, transparent 5px 10px),
-    repeating-linear-gradient(0deg, rgba(200, 140, 30, 0.32) 0 5px, transparent 5px 10px);
 }
 
 .reveal.revealed .reveal-hint {
