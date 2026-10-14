@@ -22,7 +22,7 @@
   .page {
     width: 210mm;
     height: 297mm;
-    padding: 20mm 22mm;
+    padding: 16mm 18mm;
     display: flex;
     flex-direction: column;
   }
@@ -37,15 +37,15 @@
 
   h1 {
     margin: 3mm 0 0;
-    font-size: 11mm;
+    font-size: 9.5mm;
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.015em;
   }
 
   .intro {
-    margin-top: 8mm;
-    padding: 6mm 7mm;
+    margin-top: 6mm;
+    padding: 5mm 6mm;
     border-radius: 4mm;
     background: #f5f2ff;
     border-left: 1.4mm solid #7c5cff;
@@ -62,13 +62,13 @@
 
   .intro p {
     margin: 0;
-    font-size: 4.8mm;
-    line-height: 1.5;
+    font-size: 4.3mm;
+    line-height: 1.45;
   }
 
-  .intro p + p { margin-top: 2.5mm; }
+  .intro p + p { margin-top: 2mm; }
 
-  .steps { margin-top: 9mm; display: grid; gap: 5mm; }
+  .steps { margin-top: 6mm; display: grid; gap: 4mm; }
 
   .step {
     display: flex;
@@ -78,13 +78,13 @@
 
   .step .icon {
     flex-shrink: 0;
-    width: 12mm;
-    height: 12mm;
+    width: 11mm;
+    height: 11mm;
     display: grid;
     place-items: center;
     border-radius: 3.5mm;
     background: #efe9ff;
-    font-size: 6.5mm;
+    font-size: 6mm;
     line-height: 1;
   }
 
@@ -98,13 +98,13 @@
   }
 
   .step .say {
-    font-size: 4.8mm;
-    line-height: 1.45;
+    font-size: 4.3mm;
+    line-height: 1.4;
   }
 
   .win {
     margin-top: auto;
-    padding: 6mm 7mm;
+    padding: 5mm 6mm;
     border-radius: 4mm;
     background: #fff6e6;
     border-left: 1.4mm solid #e8a33d;
@@ -121,7 +121,7 @@
 
   .win p {
     margin: 0;
-    font-size: 5.4mm;
+    font-size: 4.9mm;
     font-weight: 600;
     line-height: 1.4;
   }
@@ -135,9 +135,9 @@
 
   <div class="intro">
     <div class="label">Вступ</div>
-    <p>Сьогодні вранці систему нашої школи зламав вірус MATH_BUG.exe. Розклад, оцінки й навіть дзвінки під загрозою.</p>
+    <p>Сьогодні вранці систему нашої школи зламав вірус MATH_BUG.exe. Розклад з'їхав, оцінки перемішалися, а найстрашніше — з меню їдальні зникли булочки!</p>
     <p>Ви — команда відновлення. На вас чотири станції та фінальний бій з босом.</p>
-    <p>На кожній станції розв'яжіть завдання й уведіть відповідь на сайті: QR-код на звороті картки. Помилка не страшна — пробуйте ще раз. Запускаємо відновлення!</p>
+    <p>На кожній станції розв'яжіть завдання й уведіть відповідь на сайті: QR-код на звороті картки. Помилка не страшна — вірус теж зламав школу не з першої спроби. Запускаємо відновлення!</p>
   </div>
 
   <div class="steps">
@@ -145,7 +145,7 @@
       <div class="icon">🐞</div>
       <div>
         <div class="name">Станція 1 · Знайди SUS</div>
-        <div class="say">Вірус підмінив один приклад. Знайдіть підозрілий рядок і виправте помилку.</div>
+        <div class="say">Вірус підмінив один приклад. Знайдіть підозрілий рядок і виправте помилку. Четверо прикладів тут чесні трудівники, а один тихенько бреше.</div>
       </div>
     </div>
 
@@ -153,7 +153,7 @@
       <div class="icon">⚡</div>
       <div>
         <div class="name">Станція 2 · Не стань NPC</div>
-        <div class="say">Вірус сповільнює систему. Покажіть, що рахуєте швидше за нього.</div>
+        <div class="say">Вірус сповільнює систему. Покажіть, що рахуєте швидше за нього. Хто задумається надовго — стає NPC і до кінця квесту повторює одну фразу.</div>
       </div>
     </div>
 
@@ -161,7 +161,7 @@
       <div class="icon">⛏️</div>
       <div>
         <div class="name">Станція 3 · Minecraft: врятуй базу</div>
-        <div class="say">Моб пробив периметр шкільної бази. Порахуйте, скільки треба на відновлення.</div>
+        <div class="say">Моб пробив периметр шкільної бази. Порахуйте, скільки блоків треба на відновлення. Прохід у паркані лишаємо: крізь стіну поки що ніхто ходити не навчився.</div>
       </div>
     </div>
 
@@ -169,7 +169,7 @@
       <div class="icon">🐱</div>
       <div>
         <div class="name">Станція 4 · Мемний шифр</div>
-        <div class="say">Двері серверної вірус зашифрував мемами. Зберіть код доступу.</div>
+        <div class="say">Двері серверної вірус зашифрував мемами. Зберіть код доступу. Кіт, піца, моаї та прибулець стоять на варті й самі зізнаватися не збираються.</div>
       </div>
     </div>
 
@@ -177,14 +177,14 @@
       <div class="icon">👾</div>
       <div>
         <div class="name">Фінал · Boss Fight</div>
-        <div class="say">MATH_BUG.exe дістався до ядра. Останній бій — зберіть фінальний код.</div>
+        <div class="say">MATH_BUG.exe дістався до ядра й зі страху перемішав значення символів. Останній бій — зберіть фінальний код і вимкніть його назавжди.</div>
       </div>
     </div>
   </div>
 
   <div class="win">
     <div class="label">Після перемоги</div>
-    <p>Доступ дозволено! MATH_BUG.exe видалено. Математику врятовано!</p>
+    <p>Доступ дозволено! MATH_BUG.exe видалено. Математику врятовано, булочки повернуто!</p>
   </div>
 </div>
 
