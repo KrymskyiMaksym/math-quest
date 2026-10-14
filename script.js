@@ -150,7 +150,9 @@ function buildPixelGrid(revealBtn) {
     for (let col = 0; col < cols; col++) {
       const px = document.createElement("span");
       px.className = "px";
-      px.style.setProperty("--l", `${(64 + Math.random() * 24).toFixed(0)}%`);
+      px.style.setProperty("--l", `${(58 + Math.random() * 28).toFixed(0)}%`);
+      px.style.setProperty("--g", `${(3 + Math.random() * 5).toFixed(1)}px`);
+      px.style.setProperty("--dur", `${(1.6 + Math.random() * 1.9).toFixed(2)}s`);
       px.style.setProperty("--d", `${(Math.random() * 2.6).toFixed(2)}s`);
       px.style.setProperty("--i", `${Math.round(col * 14 + row * 22 + Math.random() * 70)}ms`);
       fragment.appendChild(px);

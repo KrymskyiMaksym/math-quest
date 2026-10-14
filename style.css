@@ -488,9 +488,15 @@ body {
   --px-s: 92%;
   position: relative;
   display: inline-block;
-  padding: 2px 4px;
+  padding: 3px 7px;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 9px;
+  background: #171235;
+  transition: background 0.45s ease 0.1s;
+}
+
+.reveal.revealed .reveal-mask {
+  background: transparent;
 }
 
 .location--gold .reveal-mask {
@@ -500,16 +506,20 @@ body {
 
 .pixel-grid {
   position: absolute;
-  inset: 0;
+  inset: 2px;
   display: grid;
   grid-template-columns: repeat(var(--cols), 1fr);
   grid-template-rows: repeat(var(--rows), 1fr);
+  gap: 1px;
   pointer-events: none;
 }
 
+/* Кожен піксель світиться сам: власний відтінок, радіус сяйва,
+   тривалість і фаза пульсації. */
 .px {
+  border-radius: 1.5px;
   background: hsl(var(--px-h) var(--px-s) var(--l));
-  animation: px-flicker 2.6s ease-in-out infinite;
+  animation: px-glow var(--dur) ease-in-out infinite;
   animation-delay: var(--d);
   transition: opacity 0.42s ease, transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -521,9 +531,15 @@ body {
   transition-delay: var(--i);
 }
 
-@keyframes px-flicker {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.14); }
+@keyframes px-glow {
+  0%, 100% {
+    filter: brightness(0.72);
+    box-shadow: 0 0 calc(var(--g) * 0.35) hsl(var(--px-h) var(--px-s) var(--l));
+  }
+  50% {
+    filter: brightness(1.3);
+    box-shadow: 0 0 var(--g) hsl(var(--px-h) var(--px-s) var(--l));
+  }
 }
 
 .reveal-text {
@@ -536,26 +552,9 @@ body {
   transition: filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Промінь сканування поверх пікселів, поки відповідь прихована */
-.reveal-mask::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
-  background-size: 260% 100%;
-  animation: sweep 2.8s linear infinite;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
 .reveal.revealed .reveal-text {
   filter: none;
   transition-delay: 0.15s;
-}
-
-.reveal.revealed .reveal-mask::after {
-  opacity: 0;
-  animation: none;
 }
 
 .reveal-hint {
@@ -573,10 +572,6 @@ body {
   opacity: 0;
 }
 
-@keyframes sweep {
-  from { background-position: 130% 0; }
-  to { background-position: -130% 0; }
-}
 
 .card--final {
   padding-bottom: 32px;
@@ -705,7 +700,7 @@ body {
   .card,
   .feedback,
   .confetti span,
-  .reveal-mask::after,
+  .px,
   .input-field input.incorrect {
     animation: none;
   }
