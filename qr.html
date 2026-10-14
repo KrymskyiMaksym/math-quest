@@ -68,15 +68,10 @@
 
   .qr img, .qr canvas { display: block; }
 
-  .url {
-    margin: 12px 0 0;
-    font-size: 0.72rem;
-    color: rgba(29, 26, 51, 0.55);
-    word-break: break-all;
-    line-height: 1.4;
-  }
-
-  .download {
+  .open {
+    display: block;
+    text-decoration: none;
+    text-align: center;
     margin-top: 12px;
     width: 100%;
     padding: 10px 14px;
@@ -91,7 +86,7 @@
     transition: filter 0.15s ease;
   }
 
-  .download:hover { filter: brightness(1.07); }
+  .open:hover { filter: brightness(1.07); }
 
   .hint {
     max-width: 1100px;
@@ -105,7 +100,7 @@
 
   @media print {
     body { background: #fff; padding: 0; }
-    .hint, .download { display: none; }
+    .hint, .open { display: none; }
     .card { box-shadow: none; page-break-inside: avoid; }
     .grid { gap: 14px; }
   }
@@ -142,8 +137,7 @@
       <div class="icon">${icon}</div>
       <div class="title">${title}</div>
       <div class="qr"></div>
-      <p class="url">${url}</p>
-      <button class="download" type="button">Завантажити PNG</button>
+      <a class="open" href="${url}" target="_blank" rel="noopener">Відкрити сторінку</a>
     `;
     grid.appendChild(card);
 
@@ -154,13 +148,6 @@
       correctLevel: QRCode.CorrectLevel.M,
     });
 
-    card.querySelector(".download").addEventListener("click", () => {
-      const canvas = card.querySelector("canvas");
-      const link = document.createElement("a");
-      link.href = canvas.toDataURL("image/png");
-      link.download = `qr-stantsiya-${stage}.png`;
-      link.click();
-    });
   });
 </script>
 </body>
