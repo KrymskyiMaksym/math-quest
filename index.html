@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#1b1640">
+<title>Врятуй школу — математичний квест</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="aurora aurora--one" aria-hidden="true"></div>
+<div class="aurora aurora--two" aria-hidden="true"></div>
+<div class="aurora aurora--three" aria-hidden="true"></div>
+
+<main id="stage-screen" class="screen" hidden>
+  <div class="card">
+    <div class="badge-wrap">
+      <div id="stage-icon" class="icon-badge"></div>
+    </div>
+    <div id="progress-dots" class="progress-dots"></div>
+    <h1 id="stage-title" class="stage-title"></h1>
+
+    <div id="inputs-area" class="inputs-area"></div>
+
+    <div id="feedback" class="feedback" hidden></div>
+  </div>
+
+  <button id="submit-btn" type="button" class="submit-btn" aria-label="Проверить ответ">
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12.5L9.5 18L20 6"/>
+    </svg>
+  </button>
+</main>
+
+<section id="success-screen" class="screen" hidden>
+  <div class="card card--final">
+    <div class="badge-wrap badge-wrap--green">
+      <div class="icon-badge icon-badge--green">✅</div>
+    </div>
+    <div id="success-dots" class="progress-dots"></div>
+    <h1 class="stage-title stage-title--green">Правильно!</h1>
+    <p id="success-hint" class="next-step"></p>
+
+    <div class="location">
+      <span class="location-pin">📍</span>
+      <span class="location-body">
+        <span class="location-label">Куди бігти далі</span>
+        <span id="success-location" class="location-text"></span>
+      </span>
+    </div>
+
+    <p class="card-note">На місці знайдіть картку та відскануйте її QR&#8209;код.</p>
+  </div>
+</section>
+
+<section id="no-stage-screen" class="screen" hidden>
+  <div class="card">
+    <div class="badge-wrap">
+      <div class="icon-badge">🔍</div>
+    </div>
+    <h1 class="stage-title">Відскануйте QR&#8209;код картки, щоб почати станцію</h1>
+    <p class="card-note">Знайдіть картку із завданням — код захований на ній.</p>
+  </div>
+</section>
+
+<section id="final-screen" class="screen" hidden>
+  <div class="confetti" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="card card--final">
+    <div class="badge-wrap badge-wrap--gold">
+      <div class="icon-badge icon-badge--gold">🏆</div>
+    </div>
+    <h1 class="stage-title stage-title--gold">Місію завершено!</h1>
+    <p class="card-note">Усі чотири станції та Boss Fight пройдено — школу врятовано.</p>
+    <p id="final-hint" class="final-hint"></p>
+
+    <div class="location location--gold">
+      <span class="location-pin">🏁</span>
+      <span class="location-body">
+        <span class="location-label">Фінальна точка</span>
+        <span id="final-location" class="location-text"></span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<script src="script.js" defer></script>
+</body>
+</html>
