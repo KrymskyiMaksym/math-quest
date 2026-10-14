@@ -32,6 +32,12 @@ html, body {
   min-height: 100%;
 }
 
+/* Колір самого html: саме його видно, коли сторінку «відтягують»
+   за край (overscroll), інакше там світиться біле тло. */
+html {
+  background-color: var(--night-1);
+}
+
 body {
   position: relative;
   min-height: 100dvh;
