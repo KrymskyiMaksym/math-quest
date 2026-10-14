@@ -31,10 +31,9 @@
   .page:last-child { page-break-after: auto; }
 
   .card {
-    position: relative;
     width: 148mm;
     height: 210mm;
-    padding: 11mm 10mm 9mm;
+    padding: 12mm 11mm 10mm;
     border: 0.5mm dashed #c9bff0;
     border-radius: 5mm;
     display: flex;
@@ -43,61 +42,52 @@
 
   /* ---------- лицьовий бік ---------- */
 
-  .head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-size: 2.6mm;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+  .station {
+    font-size: 3mm;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #7c5cff;
-    padding-bottom: 2.5mm;
-    border-bottom: 0.35mm solid #e7e1f9;
   }
-
-  .head .muted { color: #9b93b8; }
 
   .title-row {
     display: flex;
     align-items: center;
-    gap: 4mm;
-    margin-top: 6mm;
+    gap: 4.5mm;
+    margin-top: 4mm;
   }
 
   .icon {
     flex-shrink: 0;
-    width: 15mm;
-    height: 15mm;
+    width: 16mm;
+    height: 16mm;
     display: grid;
     place-items: center;
-    border-radius: 4.5mm;
+    border-radius: 5mm;
     background: #efe9ff;
-    border: 0.35mm solid #ded3fb;
-    font-size: 8mm;
+    font-size: 9mm;
     line-height: 1;
   }
 
   h1 {
     margin: 0;
-    font-size: 8.2mm;
+    font-size: 8.6mm;
     font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
   }
 
   .lead {
-    margin: 5mm 0 0;
-    font-size: 4.2mm;
-    font-weight: 400;
-    line-height: 1.45;
-    color: #413c63;
+    margin: 6mm 0 0;
+    font-size: 4.4mm;
+    line-height: 1.4;
+    color: #3d3860;
   }
 
   .tasks {
-    margin-top: 5mm;
+    margin-top: 6mm;
     display: grid;
-    gap: 2.2mm;
+    gap: 2.6mm;
   }
 
   .tasks.two { grid-template-columns: 1fr 1fr; column-gap: 4mm; }
@@ -106,77 +96,80 @@
     display: flex;
     align-items: baseline;
     gap: 3mm;
-    padding: 3mm 3.5mm;
+    padding: 3.2mm 4mm;
     border-radius: 2.5mm;
-    background: #f7f5ff;
+    background: #f5f2ff;
+    font-size: 5.2mm;
+    font-weight: 500;
   }
+
+  .tasks.two .task { white-space: nowrap; font-size: 4.9mm; }
 
   .task .num {
-    font-size: 3.5mm;
+    font-size: 3.6mm;
     font-weight: 700;
-    color: #7c5cff;
-    min-width: 5mm;
+    color: #9a8bf0;
   }
 
-  .task .body {
-    font-size: 4.9mm;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-
-  .tasks.two .task .body { white-space: nowrap; }
-
-  .tasks.two .task .line { min-width: 8mm; }
-
-  .task .line {
+  .line {
     display: inline-block;
-    min-width: 12mm;
-    border-bottom: 0.4mm solid #bdb2e8;
+    min-width: 13mm;
+    border-bottom: 0.4mm solid #b7aae6;
     margin-left: 1.5mm;
   }
 
+  .tasks.two .line { min-width: 9mm; }
+
   .block {
-    margin-top: 5mm;
-    padding: 4mm 4.5mm;
+    margin-top: 6mm;
+    padding: 4.5mm 5mm;
     border-radius: 3mm;
-    background: #f3efff;
-    border: 0.35mm solid #e0d7fb;
+    background: #f5f2ff;
+    border-left: 1.2mm solid #a992f5;
   }
 
-  .block .block-label {
-    font-size: 2.6mm;
+  .block-label {
+    font-size: 3.2mm;
+    font-weight: 700;
+    color: #7c5cff;
+    margin-bottom: 2.5mm;
+  }
+
+  .block p { margin: 0; font-size: 4.3mm; line-height: 1.45; }
+  .block p + p { margin-top: 2mm; }
+  .block strong { font-weight: 700; }
+
+  /* поля для запису відповіді */
+
+  .bottom { margin-top: auto; padding-top: 7mm; }
+
+  .answer-label {
+    font-size: 3.2mm;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #7c5cff;
-    margin-bottom: 2mm;
+    color: #9a93b5;
+    margin-bottom: 3.5mm;
   }
 
-  .block p { margin: 0; font-size: 4mm; line-height: 1.45; }
-  .block p + p { margin-top: 1.5mm; }
-  .block strong { font-weight: 700; }
+  .slots { display: flex; gap: 4mm; }
 
-  .foot {
-    margin-top: auto;
-    padding-top: 4mm;
-    border-top: 0.35mm solid #e7e1f9;
-    display: flex;
-    align-items: center;
-    gap: 3mm;
-    font-size: 3.3mm;
-    line-height: 1.35;
-    color: #5b5480;
+  .slot { display: flex; flex-direction: column; gap: 1.8mm; }
+
+  .slot-box {
+    height: 13mm;
+    border: 0.5mm solid #cfc4f2;
+    border-radius: 2.5mm;
+    background: #fdfcff;
   }
 
-  .foot .qr-mini {
-    flex-shrink: 0;
-    width: 8mm;
-    height: 8mm;
-    display: grid;
-    place-items: center;
-    border-radius: 2mm;
-    background: #efe9ff;
-    font-size: 4.5mm;
+  .slot.wide { flex: 1; }
+  .slot.digit .slot-box { width: 14mm; }
+
+  .slot-cap {
+    font-size: 3.1mm;
+    color: #6f6890;
+    text-align: center;
   }
 
   /* ---------- зворот ---------- */
@@ -185,54 +178,28 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 0;
   }
 
-  .back .station-tag {
-    font-size: 3mm;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #7c5cff;
-  }
+  .back .icon { margin-bottom: 5mm; }
+
+  .back .station { margin-bottom: 2mm; }
 
   .back h2 {
-    margin: 2.5mm 0 0;
-    font-size: 7mm;
+    margin: 0;
+    font-size: 7.4mm;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.15;
   }
 
-  .back .qr {
-    margin: 9mm 0 7mm;
-    padding: 5mm;
-    border-radius: 4mm;
-    border: 0.5mm solid #e4ddf9;
-  }
+  .back .qr { margin: 10mm 0 8mm; }
 
   .back .qr img, .back .qr canvas { display: block; }
 
   .back .scan {
-    font-size: 4.4mm;
+    font-size: 4.6mm;
     font-weight: 600;
     line-height: 1.35;
-  }
-
-  .back .url {
-    margin-top: 2.5mm;
-    font-size: 2.9mm;
-    color: #9b93b8;
-    word-break: break-all;
-  }
-
-  .back .answers {
-    margin-top: 7mm;
-    padding: 3.5mm 5mm;
-    border-radius: 3mm;
-    background: #f3efff;
-    font-size: 3.4mm;
-    line-height: 1.4;
-    color: #4a4470;
+    color: #3d3860;
   }
 </style>
 </head>
@@ -247,110 +214,78 @@
   const STATIONS = [
     {
       stage: 1,
-      tag: "Станція 1 · картка завдання",
-      time: "7 хвилин",
+      station: "Станція 1",
       icon: "🐞",
       title: "Знайди SUS",
-      lead: "Вірус пошкодив рівно один рядок. Знайдіть підозрілий вираз і виправте помилку.",
-      tasks: [
-        "48 : (8 − 2) = 8",
-        "7 × (12 − 4) = 56",
-        "90 − (24 : 6) = 86",
-        "(35 + 13) : 6 = 7",
-        "100 − (8 × 9) = 28",
+      lead: "Вірус пошкодив один рядок. Знайдіть його та виправте помилку.",
+      tasks: ["48 : (8 − 2) = 8", "7 × (12 − 4) = 56", "90 − (24 : 6) = 86", "(35 + 13) : 6 = 7", "100 − (8 × 9) = 28"],
+      numbered: true,
+      block: { label: "Ще один приклад", html: "<p><strong>72 : (3 × 4) + 5 = 11</strong></p><p>Чи правильна ця рівність?</p>" },
+      slots: [
+        { cap: "№ виразу", digit: true },
+        { cap: "правильна відповідь", wide: true },
       ],
-      columns: 1,
-      block: {
-        label: "Додаткова перевірка системи",
-        html: "<p><strong>72 : (3 × 4) + 5 = 11</strong></p><p>Чи правильна ця рівність? Порахуйте дії по кроках.</p>",
-      },
-      answers: "№ підозрілого виразу та його правильну відповідь",
     },
     {
       stage: 2,
-      tag: "Станція 2 · картка завдання",
-      time: "90 секунд",
+      station: "Станція 2",
       icon: "⚡",
       title: "Не стань NPC",
-      lead: "Математичний бліц. Порахуйте всі вісім прикладів якнайшвидше — і без помилок.",
-      tasks: [
-        "48 : 6 + 7 =",
-        "6 × (9 − 4) =",
-        "72 : (10 − 2) =",
-        "100 − 8 × 7 =",
-        "(36 + 24) : 6 =",
-        "5 × 8 − 15 =",
-        "120 : 4 + 25 =",
-        "90 − (18 + 27) =",
-      ],
+      lead: "Порахуйте всі вісім прикладів. Швидко — і без помилок.",
+      tasks: ["48 : 6 + 7 =", "6 × (9 − 4) =", "72 : (10 − 2) =", "100 − 8 × 7 =", "(36 + 24) : 6 =", "5 × 8 − 15 =", "120 : 4 + 25 =", "90 − (18 + 27) ="],
+      numbered: true,
       columns: 2,
       withLines: true,
-      block: {
-        label: "Пастка для NPC",
-        html: "<p><strong>Вираз А:</strong> 5 × 8 + 10 &nbsp;&nbsp; <strong>Вираз Б:</strong> 5 × (8 + 10)</p><p>Який вираз більший і на скільки одиниць?</p>",
-      },
-      answers: "вісім відповідей бліцу",
+      block: { label: "Пастка", html: "<p><strong>А:</strong> 5 × 8 + 10 &nbsp;&nbsp;&nbsp; <strong>Б:</strong> 5 × (8 + 10)</p><p>Який вираз більший і на скільки?</p>" },
     },
     {
       stage: 3,
-      tag: "Станція 3 · геометричний практикум",
-      time: "7 хвилин",
+      station: "Станція 3",
       icon: "⛏️",
       title: "Minecraft: врятуй базу",
-      lead: "База — прямокутник 12 × 7 блоків. Усередині кімната 4 × 3 блоки, а в паркані прохід завширшки 2 блоки.",
-      tasks: [
-        "Периметр бази =",
-        "Площа бази =",
-        "Блоки паркану =",
-        "Площа кімнати =",
-        "Площа решти бази =",
-      ],
-      columns: 1,
+      lead: "База — прямокутник 12 × 7 блоків. Усередині кімната 4 × 3, у паркані прохід завширшки 2 блоки.",
+      tasks: ["Периметр бази =", "Площа бази =", "Блоки паркану =", "Площа кімнати =", "Площа решти бази ="],
+      numbered: true,
       withLines: true,
-      block: {
-        label: "Алгоритм розкриття скрині",
-        html: "<p><strong>Код скрині = Площа бази − Периметр бази</strong></p><p>Обчисліть і обов'язково запишіть код у маршрутний лист — він знадобиться у фіналі.</p>",
-      },
-      answers: "п'ять значень із завдання",
+      block: { label: "Код скрині", html: "<p><strong>Площа бази − Периметр бази</strong></p><p>Запишіть код у маршрутний лист — він знадобиться у фіналі.</p>" },
     },
     {
       stage: 4,
-      tag: "Станція 4 · криптографія",
-      time: "7 хвилин",
+      station: "Станція 4",
       icon: "🐱",
       title: "Мемний шифр",
-      lead: "Визначте значення чотирьох символів, порахуйте вирази та візьміть останню цифру кожної відповіді.",
-      tasks: [
-        "Кіт + Кіт = 16",
-        "Кіт + Піца = 13",
-        "Моаї − Піца = 1",
-        "Моаї + Прибулець = 10",
-      ],
+      lead: "Знайдіть значення символів. Потім порахуйте вирази і візьміть останню цифру кожної відповіді.",
+      tasks: ["Кіт + Кіт = 16", "Кіт + Піца = 13", "Моаї − Піца = 1", "Моаї + Прибулець = 10"],
       columns: 2,
       block: {
-        label: "Вирази для розрахунку · беремо останню цифру",
+        label: "Порахуйте вирази",
         html: "<p><strong>1.</strong> Кіт × Прибулець − 4</p><p><strong>2.</strong> (Моаї + Піца) × Прибулець</p><p><strong>3.</strong> Кіт + Піца + Моаї + Прибулець + 4</p><p><strong>4.</strong> Піца × 2 − Прибулець + 1</p>",
       },
-      answers: "чотири цифри коду доступу",
+      slotsLabel: "Код доступу",
+      slots: [
+        { cap: "1", digit: true },
+        { cap: "2", digit: true },
+        { cap: "3", digit: true },
+        { cap: "4", digit: true },
+      ],
     },
     {
       stage: 5,
-      tag: "Фінальний рівень · битва з босом",
-      time: "3 хвилини",
+      station: "Фінал",
       icon: "👾",
       title: "Boss Fight",
-      lead: "MATH_BUG.exe атакує ядро системи! У фінальному раунді символи змінюють значення.",
-      tasks: [
-        "Кіт + Кіт = 20",
-        "Кіт + Піца = 15",
-        "Піца + Прибулець = 5",
-      ],
-      columns: 1,
+      lead: "MATH_BUG.exe атакує ядро! Символи змінили значення — складіть фінальний код.",
+      tasks: ["Кіт + Кіт = 20", "Кіт + Піца = 15", "Піца + Прибулець = 5"],
       block: {
-        label: "Обчислення з пастками",
-        html: "<p><strong>Завдання 2:</strong> Кіт + Піца × Прибулець</p><p><strong>Завдання 3:</strong> (Кіт + Прибулець) × Піца − 15</p><p><strong>Код:</strong> 1-ша цифра — кількість сотень у відповіді завдання 3; 2-га — остання цифра відповіді завдання 2; 3-тя — значення прибульця.</p>",
+        label: "Порахуйте",
+        html: "<p><strong>Завдання 2:</strong> Кіт + Піца × Прибулець</p><p><strong>Завдання 3:</strong> (Кіт + Прибулець) × Піца − 15</p><p>Код: сотні з відповіді 3 · остання цифра відповіді 2 · значення прибульця</p>",
       },
-      answers: "три цифри фінального коду",
+      slotsLabel: "Фінальний код",
+      slots: [
+        { cap: "1", digit: true },
+        { cap: "2", digit: true },
+        { cap: "3", digit: true },
+      ],
     },
   ];
 
@@ -359,34 +294,44 @@
   STATIONS.forEach((s) => {
     const url = `${BASE}?stage=${s.stage}`;
 
+    const tasksHtml = s.tasks
+      .map((t, i) => {
+        const num = s.numbered ? `<span class="num">${String(i + 1).padStart(2, "0")}</span>` : "";
+        const line = s.withLines ? '<span class="line"></span>' : "";
+        return `<div class="task">${num}<span>${t}${line}</span></div>`;
+      })
+      .join("");
+
+    const slotsHtml = s.slots
+      ? `<div class="answer">
+          <div class="answer-label">${s.slotsLabel || "Ваша відповідь"}</div>
+          <div class="slots">
+            ${s.slots
+              .map(
+                (sl) =>
+                  `<div class="slot ${sl.wide ? "wide" : ""} ${sl.digit ? "digit" : ""}"><span class="slot-box"></span><span class="slot-cap">${sl.cap}</span></div>`
+              )
+              .join("")}
+          </div>
+        </div>`
+      : "";
+
     const front = document.createElement("div");
     front.className = "page";
     front.innerHTML = `
       <div class="card">
-        <div class="head"><span>${s.tag}</span><span class="muted">${s.time}</span></div>
+        <div class="station">${s.station}</div>
         <div class="title-row">
           <div class="icon">${s.icon}</div>
           <h1>${s.title}</h1>
         </div>
         <p class="lead">${s.lead}</p>
-        <div class="tasks ${s.columns === 2 ? "two" : ""}">
-          ${s.tasks
-            .map(
-              (t, i) =>
-                `<div class="task"><span class="num">${String(i + 1).padStart(2, "0")}</span><span class="body">${t}${
-                  s.withLines ? '<span class="line"></span>' : ""
-                }</span></div>`
-            )
-            .join("")}
-        </div>
+        <div class="tasks ${s.columns === 2 ? "two" : ""}">${tasksHtml}</div>
         <div class="block">
           <div class="block-label">${s.block.label}</div>
           ${s.block.html}
         </div>
-        <div class="foot">
-          <span class="qr-mini">📱</span>
-          <span>Відповіді вводите на сайті — відскануйте QR-код на звороті картки.</span>
-        </div>
+        <div class="bottom">${slotsHtml}</div>
       </div>
     `;
     sheets.appendChild(front);
@@ -395,20 +340,19 @@
     back.className = "page";
     back.innerHTML = `
       <div class="card back">
-        <div class="station-tag">${s.stage === 5 ? "Фінальний рівень" : "Станція " + s.stage}</div>
+        <div class="icon">${s.icon}</div>
+        <div class="station">${s.station}</div>
         <h2>${s.title}</h2>
         <div class="qr"></div>
-        <div class="scan">Відскануйте код,<br>щоб ввести відповідь</div>
-        <div class="url">${url}</div>
-        <div class="answers">Знадобиться: ${s.answers}</div>
+        <div class="scan">Відскануйте код,<br>щоб ввести відповіді</div>
       </div>
     `;
     sheets.appendChild(back);
 
     new QRCode(back.querySelector(".qr"), {
       text: url,
-      width: 230,
-      height: 230,
+      width: 240,
+      height: 240,
       correctLevel: QRCode.CorrectLevel.M,
     });
   });
