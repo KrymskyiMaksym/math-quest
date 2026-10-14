@@ -145,11 +145,18 @@ function buildPixelGrid(revealBtn) {
   grid.style.setProperty("--cols", cols);
   grid.style.setProperty("--rows", rows);
 
+  const fadeCols = Math.max(2, Math.round(cols * 0.16));
   const fragment = document.createDocumentFragment();
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
+      const distX = Math.min(col, cols - 1 - col);
+      const distY = Math.min(row, rows - 1 - row);
+      const fadeX = Math.min(1, (distX + 1) / (fadeCols + 1));
+      const fadeY = rows > 2 ? Math.min(1, (distY + 1) / 2) : 1;
+
       const px = document.createElement("span");
       px.className = "px";
+      px.style.setProperty("--e", (fadeX * fadeY).toFixed(2));
       px.style.setProperty("--l", `${(58 + Math.random() * 28).toFixed(0)}%`);
       px.style.setProperty("--g", `${(3 + Math.random() * 5).toFixed(1)}px`);
       px.style.setProperty("--dur", `${(1.6 + Math.random() * 1.9).toFixed(2)}s`);
@@ -269,8 +276,85 @@ function checkAnswer(stageNumber) {
 
 submitBtn.addEventListener("click", () => checkAnswer(getStageFromURL()));
 
+const gate = document.getElementById("gate");
+const gateTask = document.getElementById("gate-task");
+const gateInput = document.getElementById("gate-input");
+const gateError = document.getElementById("gate-error");
+const gateSubmit = document.getElementById("gate-submit");
+const gateClose = document.getElementById("gate-close");
+
+let gateTarget = null;
+let gateAnswer = null;
+
+function randomInt(min, max) {
+  return min + Math.floor(Math.random() * (max - min + 1));
+}
+
+function makeGateTask() {
+  if (Math.random() < 0.5) {
+    const a = randomInt(3, 9);
+    const b = randomInt(3, 9);
+    return { text: `${a} × ${b}`, answer: a * b };
+  }
+  const a = randomInt(21, 69);
+  const b = randomInt(11, 29);
+  return { text: `${a} + ${b}`, answer: a + b };
+}
+
+function openGate(revealBtn) {
+  const task = makeGateTask();
+  gateTarget = revealBtn;
+  gateAnswer = task.answer;
+  gateTask.textContent = `${task.text} = ?`;
+  gateInput.value = "";
+  gateInput.classList.remove("wrong");
+  gateError.hidden = true;
+  gate.hidden = false;
+  gateInput.focus();
+}
+
+function closeGate() {
+  gate.hidden = true;
+  gateTarget = null;
+}
+
+function submitGate() {
+  const value = gateInput.value.trim();
+  if (value === "" || Number(value) !== gateAnswer) {
+    gateInput.classList.remove("wrong");
+    void gateInput.offsetWidth;
+    gateInput.classList.add("wrong");
+    gateError.hidden = false;
+    gateInput.select();
+    return;
+  }
+
+  gateTarget.classList.add("revealed");
+  closeGate();
+}
+
 [successReveal, finalReveal].forEach((btn) => {
-  btn.addEventListener("click", () => btn.classList.add("revealed"));
+  btn.addEventListener("click", () => {
+    if (!btn.classList.contains("revealed")) openGate(btn);
+  });
+});
+
+gateSubmit.addEventListener("click", submitGate);
+gateClose.addEventListener("click", closeGate);
+
+gateInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    submitGate();
+  }
+});
+
+gate.addEventListener("click", (e) => {
+  if (e.target === gate) closeGate();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !gate.hidden) closeGate();
 });
 
 function init() {

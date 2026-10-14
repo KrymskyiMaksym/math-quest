@@ -53,7 +53,7 @@
         <span id="success-riddle" class="location-riddle"></span>
         <button id="success-reveal" class="reveal" type="button">
           <span class="reveal-mask"><span id="success-location" class="reveal-text"></span></span>
-          <span class="reveal-hint">натисніть, щоб побачити</span>
+          <span class="reveal-hint">натисніть, щоб розблокувати</span>
         </button>
       </span>
     </div>
@@ -92,12 +92,23 @@
         <span id="final-riddle" class="location-riddle"></span>
         <button id="final-reveal" class="reveal" type="button">
           <span class="reveal-mask"><span id="final-location" class="reveal-text"></span></span>
-          <span class="reveal-hint">натисніть, щоб побачити</span>
+          <span class="reveal-hint">натисніть, щоб розблокувати</span>
         </button>
       </span>
     </div>
   </div>
 </section>
+
+<div id="gate" class="gate" hidden>
+  <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gate-task">
+    <button id="gate-close" class="gate-close" type="button" aria-label="Закрити">×</button>
+    <p class="gate-label">Розв'яжіть, щоб відкрити підказку</p>
+    <p id="gate-task" class="gate-task"></p>
+    <input id="gate-input" class="gate-input" type="number" inputmode="numeric" placeholder="?">
+    <p id="gate-error" class="gate-error" hidden>Не те число — спробуйте ще раз</p>
+    <button id="gate-submit" class="gate-submit" type="button">Відкрити</button>
+  </div>
+</div>
 
 <script src="script.js" defer></script>
 </body>
