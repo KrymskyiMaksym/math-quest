@@ -76,6 +76,23 @@
     line-height: 1.4;
   }
 
+  .download {
+    margin-top: 12px;
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(150deg, #7c5cff, #b14bf4);
+    cursor: pointer;
+    transition: filter 0.15s ease;
+  }
+
+  .download:hover { filter: brightness(1.07); }
+
   .hint {
     max-width: 1100px;
     margin: 26px auto 0;
@@ -88,7 +105,7 @@
 
   @media print {
     body { background: #fff; padding: 0; }
-    .hint { display: none; }
+    .hint, .download { display: none; }
     .card { box-shadow: none; page-break-inside: avoid; }
     .grid { gap: 14px; }
   }
@@ -126,6 +143,7 @@
       <div class="title">${title}</div>
       <div class="qr"></div>
       <p class="url">${url}</p>
+      <button class="download" type="button">Завантажити PNG</button>
     `;
     grid.appendChild(card);
 
@@ -134,6 +152,14 @@
       width: 200,
       height: 200,
       correctLevel: QRCode.CorrectLevel.M,
+    });
+
+    card.querySelector(".download").addEventListener("click", () => {
+      const canvas = card.querySelector("canvas");
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png");
+      link.download = `qr-stantsiya-${stage}.png`;
+      link.click();
     });
   });
 </script>
