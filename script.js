@@ -7,6 +7,7 @@ const STAGES = [
       { label: "Відповідь", accepted: [8] },
     ],
     successHint: "SUS-вираз знешкоджено! Запишіть відповідь у маршрутний лист і рухайтесь до станції 2.",
+    riddle: "Тут брязкають ложки й пахне гарячим борщем. Після уроку всі біжать сюди першими.",
     location: "Їдальня",
     failHint: "Перевірте кожен рядок: спочатку дії в дужках. Шукайте приклад, де результат не сходиться.",
   },
@@ -24,6 +25,7 @@ const STAGES = [
       { label: "08", accepted: [45] },
     ],
     successHint: "Бліц пройдено! Рухайтесь до станції 3 — рятувати базу.",
+    riddle: "Найпросторіше місце школи: тут збираються всі класи на свята й лінійки.",
     location: "Загальна зала",
     failHint: "Пам'ятайте порядок дій: спочатку дужки, потім × та :, і лише тоді + та −.",
   },
@@ -38,6 +40,7 @@ const STAGES = [
       { label: "Решта", accepted: [72] },
     ],
     successHint: "Базу врятовано! Обчисліть код скрині та запишіть його у маршрутний лист. Далі станція 4.",
+    riddle: "Коли лунає сигнал тривоги, уся школа спускається саме сюди. Тут безпечно.",
     location: "Укриття",
     failHint: "Периметр — сума всіх сторін, площа — довжина × ширина. Паркан = периметр мінус прохід завширшки 2 блоки.",
   },
@@ -51,6 +54,7 @@ const STAGES = [
       { label: "4", accepted: [7] },
     ],
     successHint: "Код доступу прийнято! Залишився фінальний бій з MATH_BUG.exe.",
+    riddle: "Двері, за якими сидить найголовніша людина школи. Повз них проходять тихенько.",
     location: "Біля кабінету директора",
     failHint: "Спершу знайдіть значення символів: Кіт, Піца, Моаї, Прибулець. Потім візьміть останню цифру кожної відповіді.",
   },
@@ -63,6 +67,7 @@ const STAGES = [
       { label: "3", accepted: [0] },
     ],
     successHint: "🏆 Доступ дозволено! MATH_BUG.exe видалено. Математику врятовано!",
+    riddle: "Там, де ваші парти й дошка. Місце, звідки все почалося — поверніться туди.",
     location: "Клас",
     failHint: "Символи змінили значення: Кіт + Кіт = 20, Кіт + Піца = 15, Піца + Прибулець = 5. Перерахуйте завдання 2 і 3.",
   },
@@ -73,7 +78,11 @@ const noStageScreen = document.getElementById("no-stage-screen");
 const successScreen = document.getElementById("success-screen");
 const successHint = document.getElementById("success-hint");
 const successLocation = document.getElementById("success-location");
+const successRiddle = document.getElementById("success-riddle");
+const successReveal = document.getElementById("success-reveal");
 const finalLocation = document.getElementById("final-location");
+const finalRiddle = document.getElementById("final-riddle");
+const finalReveal = document.getElementById("final-reveal");
 const successDots = document.getElementById("success-dots");
 const finalScreen = document.getElementById("final-screen");
 const finalHint = document.getElementById("final-hint");
@@ -203,11 +212,15 @@ function checkAnswer(stageNumber) {
   if (allCorrect) {
     if (stageNumber === STAGES.length) {
       finalHint.textContent = currentStage.successHint;
+      finalRiddle.textContent = currentStage.riddle;
       finalLocation.textContent = currentStage.location;
+      finalReveal.classList.remove("revealed");
       showScreen(finalScreen);
     } else {
       successHint.textContent = currentStage.successHint;
+      successRiddle.textContent = currentStage.riddle;
       successLocation.textContent = currentStage.location;
+      successReveal.classList.remove("revealed");
       renderProgressDots(successDots, stageNumber, { solved: true });
       showScreen(successScreen);
     }
@@ -218,6 +231,10 @@ function checkAnswer(stageNumber) {
 }
 
 submitBtn.addEventListener("click", () => checkAnswer(getStageFromURL()));
+
+[successReveal, finalReveal].forEach((btn) => {
+  btn.addEventListener("click", () => btn.classList.add("revealed"));
+});
 
 function init() {
   const stageNumber = getStageFromURL();
