@@ -167,6 +167,13 @@
 
   .back .qr img, .back .qr canvas { display: block; }
 
+  .back .enter {
+    margin-top: 6mm;
+    padding-top: 0;
+    border-top: none;
+    max-width: 105mm;
+  }
+
   .back .scan {
     font-size: 4.6mm;
     font-weight: 600;
@@ -285,6 +292,7 @@
         <h2>${s.title}</h2>
         <div class="qr"></div>
         <div class="scan">Відскануйте код,<br>щоб ввести відповіді</div>
+        <div class="enter"><span>Ввести на сайті:</span> ${s.enter}</div>
       </div>
     `;
     sheets.appendChild(back);
