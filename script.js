@@ -1,10 +1,11 @@
 const STAGES = [
   {
     title: "Станція 1. Знайди SUS",
+    fieldsHint: "Номер хибного прикладу та його правильний результат",
     icon: "🐞",
     inputs: [
-      { label: "№ SUS", accepted: [4] },
-      { label: "Відповідь", accepted: [8] },
+      { label: "№ прикладу", accepted: [4] },
+      { label: "результат", accepted: [8] },
     ],
     successHint: "SUS-вираз знешкоджено! Запишіть відповідь у маршрутний лист і рухайтесь до станції 2.",
     riddle: "Тут брязкають ложки й пахне гарячим борщем. Після уроку всі біжать сюди першими.",
@@ -14,6 +15,7 @@ const STAGES = [
   },
   {
     title: "Станція 2. Не стань NPC",
+    fieldsHint: "Відповіді до восьми прикладів по порядку",
     icon: "⚡",
     inputs: [
       { label: "01", accepted: [15] },
@@ -33,6 +35,7 @@ const STAGES = [
   },
   {
     title: "Станція 3. Minecraft: врятуй базу",
+    fieldsHint: "П'ять значень по порядку з картки",
     icon: "⛏️",
     inputs: [
       { label: "Периметр", accepted: [38] },
@@ -49,6 +52,7 @@ const STAGES = [
   },
   {
     title: "Станція 4. Мемний шифр",
+    fieldsHint: "Чотири цифри коду доступу",
     icon: "🐱",
     inputs: [
       { label: "1", accepted: [8] },
@@ -64,6 +68,7 @@ const STAGES = [
   },
   {
     title: "Фінальний рівень. Boss Fight",
+    fieldsHint: "Три цифри фінального коду",
     icon: "👾",
     inputs: [
       { label: "1", accepted: [0] },
@@ -96,6 +101,7 @@ const finalHint = document.getElementById("final-hint");
 const stageIcon = document.getElementById("stage-icon");
 const progressDots = document.getElementById("progress-dots");
 const stageTitle = document.getElementById("stage-title");
+const fieldsHint = document.getElementById("fields-hint");
 const inputsArea = document.getElementById("inputs-area");
 const feedback = document.getElementById("feedback");
 const submitBtn = document.getElementById("submit-btn");
@@ -193,6 +199,7 @@ function renderStage(stageNumber) {
   stageIcon.textContent = currentStage.icon;
   renderProgressDots(progressDots, stageNumber);
   stageTitle.textContent = currentStage.title;
+  fieldsHint.textContent = currentStage.fieldsHint;
   setFeedback("", null);
 
   inputsArea.innerHTML = "";
