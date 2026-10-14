@@ -92,6 +92,9 @@
 
   .tasks.two { grid-template-columns: 1fr 1fr; column-gap: 4mm; }
 
+  .airy .tasks { gap: 4.5mm; }
+  .airy .task { padding: 4.6mm 4mm; }
+
   .task {
     display: flex;
     align-items: baseline;
@@ -220,7 +223,6 @@
       lead: "MATH_BUG.exe пробрався в систему школи й підмінив один приклад. Знайдіть його та виправте помилку.",
       tasks: ["48 : (8 − 2) = 8", "7 × (12 − 4) = 56", "90 − (24 : 6) = 86", "(35 + 13) : 6 = 7", "100 − (8 × 9) = 28"],
       numbered: true,
-      block: { label: "Ще один приклад", html: "<p><strong>72 : (3 × 4) + 5 = 11</strong></p><p>Чи правильна ця рівність?</p>" },
       slots: [
         { cap: "№ виразу", digit: true },
         { cap: "правильна відповідь", wide: true },
@@ -236,7 +238,6 @@
       numbered: true,
       columns: 2,
       withLines: true,
-      block: { label: "Пастка", html: "<p><strong>А:</strong> 5 × 8 + 10 &nbsp;&nbsp;&nbsp; <strong>Б:</strong> 5 × (8 + 10)</p><p>Який вираз більший і на скільки?</p>" },
     },
     {
       stage: 3,
@@ -247,7 +248,6 @@
       tasks: ["Периметр бази =", "Площа бази =", "Блоки паркану =", "Площа кімнати =", "Площа решти бази ="],
       numbered: true,
       withLines: true,
-      block: { label: "Код скрині", html: "<p><strong>Площа бази − Периметр бази</strong></p><p>Запишіть код у маршрутний лист — він знадобиться у фіналі.</p>" },
     },
     {
       stage: 4,
@@ -319,7 +319,7 @@
     const front = document.createElement("div");
     front.className = "page";
     front.innerHTML = `
-      <div class="card">
+      <div class="card ${s.block ? "" : "airy"}">
         <div class="station">${s.station}</div>
         <div class="title-row">
           <div class="icon">${s.icon}</div>
@@ -327,10 +327,10 @@
         </div>
         <p class="lead">${s.lead}</p>
         <div class="tasks ${s.columns === 2 ? "two" : ""}">${tasksHtml}</div>
-        <div class="block">
+        ${s.block ? `<div class="block">
           <div class="block-label">${s.block.label}</div>
           ${s.block.html}
-        </div>
+        </div>` : ""}
         <div class="bottom">${slotsHtml}</div>
       </div>
     `;
