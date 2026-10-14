@@ -9,6 +9,7 @@ const STAGES = [
     successHint: "SUS-вираз знешкоджено! Запишіть відповідь у маршрутний лист і рухайтесь до станції 2.",
     riddle: "Тут брязкають ложки й пахне гарячим борщем. Після уроку всі біжать сюди першими.",
     location: "Їдальня",
+    placeIcon: "🍽️",
     failHint: "Перевірте кожен рядок: спочатку дії в дужках. Шукайте приклад, де результат не сходиться.",
   },
   {
@@ -27,6 +28,7 @@ const STAGES = [
     successHint: "Бліц пройдено! Рухайтесь до станції 3 — рятувати базу.",
     riddle: "Найпросторіше місце школи: тут збираються всі класи на свята й лінійки.",
     location: "Загальна зала",
+    placeIcon: "🏛️",
     failHint: "Пам'ятайте порядок дій: спочатку дужки, потім × та :, і лише тоді + та −.",
   },
   {
@@ -42,6 +44,7 @@ const STAGES = [
     successHint: "Базу врятовано! Обчисліть код скрині та запишіть його у маршрутний лист. Далі станція 4.",
     riddle: "Коли лунає сигнал тривоги, уся школа спускається саме сюди. Тут безпечно.",
     location: "Укриття",
+    placeIcon: "🛡️",
     failHint: "Периметр — сума всіх сторін, площа — довжина × ширина. Паркан = периметр мінус прохід завширшки 2 блоки.",
   },
   {
@@ -56,6 +59,7 @@ const STAGES = [
     successHint: "Код доступу прийнято! Залишився фінальний бій з MATH_BUG.exe.",
     riddle: "Двері, за якими сидить найголовніша людина школи. Повз них проходять тихенько.",
     location: "Біля кабінету директора",
+    placeIcon: "🚪",
     failHint: "Спершу знайдіть значення символів: Кіт, Піца, Моаї, Прибулець. Потім візьміть останню цифру кожної відповіді.",
   },
   {
@@ -69,6 +73,7 @@ const STAGES = [
     successHint: "🏆 Доступ дозволено! MATH_BUG.exe видалено. Математику врятовано!",
     riddle: "Там, де ваші парти й дошка. Місце, звідки все почалося — поверніться туди.",
     location: "Клас",
+    placeIcon: "📚",
     failHint: "Символи змінили значення: Кіт + Кіт = 20, Кіт + Піца = 15, Піца + Прибулець = 5. Перерахуйте завдання 2 і 3.",
   },
 ];
@@ -79,6 +84,8 @@ const successScreen = document.getElementById("success-screen");
 const successHint = document.getElementById("success-hint");
 const successLocation = document.getElementById("success-location");
 const successRiddle = document.getElementById("success-riddle");
+const successPlaceIcon = document.getElementById("success-place-icon");
+const finalPlaceIcon = document.getElementById("final-place-icon");
 const successReveal = document.getElementById("success-reveal");
 const finalLocation = document.getElementById("final-location");
 const finalRiddle = document.getElementById("final-riddle");
@@ -256,6 +263,7 @@ function checkAnswer(stageNumber) {
       finalHint.textContent = currentStage.successHint;
       finalRiddle.textContent = currentStage.riddle;
       finalLocation.textContent = currentStage.location;
+      finalPlaceIcon.textContent = currentStage.placeIcon;
       finalReveal.classList.remove("revealed");
       showScreen(finalScreen);
       requestAnimationFrame(() => buildPixelGrid(finalReveal));
@@ -263,6 +271,7 @@ function checkAnswer(stageNumber) {
       successHint.textContent = currentStage.successHint;
       successRiddle.textContent = currentStage.riddle;
       successLocation.textContent = currentStage.location;
+      successPlaceIcon.textContent = currentStage.placeIcon;
       successReveal.classList.remove("revealed");
       renderProgressDots(successDots, stageNumber, { solved: true });
       showScreen(successScreen);

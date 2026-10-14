@@ -47,11 +47,15 @@
     <p id="success-hint" class="next-step"></p>
 
     <div class="location">
+      <span class="location-pin">📍</span>
       <span class="location-body">
         <span class="location-label">Куди бігти далі</span>
         <span id="success-riddle" class="location-riddle"></span>
         <button id="success-reveal" class="reveal" type="button">
-          <span class="location-pin">📍</span>
+          <span class="place-icon">
+            <span class="place-icon-locked">🔒</span>
+            <span id="success-place-icon" class="place-icon-open"></span>
+          </span>
           <span class="reveal-mask"><span id="success-location" class="reveal-text"></span></span>
           <span class="reveal-hint">натисніть, щоб розблокувати</span>
         </button>
@@ -86,11 +90,15 @@
     <p id="final-hint" class="final-hint"></p>
 
     <div class="location location--gold">
+      <span class="location-pin">🏁</span>
       <span class="location-body">
         <span class="location-label">Фінальна точка</span>
         <span id="final-riddle" class="location-riddle"></span>
         <button id="final-reveal" class="reveal" type="button">
-          <span class="location-pin">🏁</span>
+          <span class="place-icon">
+            <span class="place-icon-locked">🔒</span>
+            <span id="final-place-icon" class="place-icon-open"></span>
+          </span>
           <span class="reveal-mask"><span id="final-location" class="reveal-text"></span></span>
           <span class="reveal-hint">натисніть, щоб розблокувати</span>
         </button>
