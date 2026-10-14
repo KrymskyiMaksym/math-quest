@@ -447,18 +447,20 @@ body {
 /* До розгадки — замок; іконка самого місця з'являється лише
    після розкриття, інакше вона видала б відповідь. */
 .place-icon {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: #f1ecff;
-  font-size: 0.98rem;
+  background: #e4dbff;
+  border: 1px solid #d3c6fb;
+  font-size: 1.05rem;
   line-height: 1;
 }
 
 .location--gold .place-icon {
-  background: #fff1d9;
+  background: #ffe6bd;
+  border-color: #f5d49a;
 }
 
 .place-icon-open {
