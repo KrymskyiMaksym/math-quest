@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Текст ведучого — Врятуй школу</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4 portrait; margin: 0; }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Fredoka", "Segoe UI", sans-serif;
+    color: #1d1a33;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm 22mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kicker {
+    font-size: 3.2mm;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7c5cff;
+  }
+
+  h1 {
+    margin: 3mm 0 0;
+    font-size: 11mm;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+
+  .intro {
+    margin-top: 8mm;
+    padding: 6mm 7mm;
+    border-radius: 4mm;
+    background: #f5f2ff;
+    border-left: 1.4mm solid #7c5cff;
+  }
+
+  .intro .label {
+    font-size: 3.4mm;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7c5cff;
+    margin-bottom: 3mm;
+  }
+
+  .intro p {
+    margin: 0;
+    font-size: 4.8mm;
+    line-height: 1.5;
+  }
+
+  .intro p + p { margin-top: 2.5mm; }
+
+  .steps { margin-top: 9mm; display: grid; gap: 5mm; }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 5mm;
+  }
+
+  .step .icon {
+    flex-shrink: 0;
+    width: 12mm;
+    height: 12mm;
+    display: grid;
+    place-items: center;
+    border-radius: 3.5mm;
+    background: #efe9ff;
+    font-size: 6.5mm;
+    line-height: 1;
+  }
+
+  .step .name {
+    font-size: 3.4mm;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9a93b5;
+    margin-bottom: 1.5mm;
+  }
+
+  .step .say {
+    font-size: 4.8mm;
+    line-height: 1.45;
+  }
+
+  .win {
+    margin-top: auto;
+    padding: 6mm 7mm;
+    border-radius: 4mm;
+    background: #fff6e6;
+    border-left: 1.4mm solid #e8a33d;
+  }
+
+  .win .label {
+    font-size: 3.4mm;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #b07b16;
+    margin-bottom: 3mm;
+  }
+
+  .win p {
+    margin: 0;
+    font-size: 5.4mm;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="kicker">Врятуй школу · операція проти MATH_BUG.exe</div>
+  <h1>Текст ведучого</h1>
+
+  <div class="intro">
+    <div class="label">Вступ</div>
+    <p>Сьогодні вранці систему нашої школи зламав вірус MATH_BUG.exe. Розклад, оцінки й навіть дзвінки під загрозою.</p>
+    <p>Ви — команда відновлення. На вас чотири станції та фінальний бій з босом.</p>
+    <p>На кожній станції розв'яжіть завдання й уведіть відповідь на сайті: QR-код на звороті картки. Помилка не страшна — пробуйте ще раз. Запускаємо відновлення!</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="icon">🐞</div>
+      <div>
+        <div class="name">Станція 1 · Знайди SUS</div>
+        <div class="say">Вірус підмінив один приклад. Знайдіть підозрілий рядок і виправте помилку.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="icon">⚡</div>
+      <div>
+        <div class="name">Станція 2 · Не стань NPC</div>
+        <div class="say">Вірус сповільнює систему. Покажіть, що рахуєте швидше за нього.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="icon">⛏️</div>
+      <div>
+        <div class="name">Станція 3 · Minecraft: врятуй базу</div>
+        <div class="say">Моб пробив периметр шкільної бази. Порахуйте, скільки треба на відновлення.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="icon">🐱</div>
+      <div>
+        <div class="name">Станція 4 · Мемний шифр</div>
+        <div class="say">Двері серверної вірус зашифрував мемами. Зберіть код доступу.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="icon">👾</div>
+      <div>
+        <div class="name">Фінал · Boss Fight</div>
+        <div class="say">MATH_BUG.exe дістався до ядра. Останній бій — зберіть фінальний код.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="win">
+    <div class="label">Після перемоги</div>
+    <p>Доступ дозволено! MATH_BUG.exe видалено. Математику врятовано!</p>
+  </div>
+</div>
+
+</body>
+</html>
