@@ -111,11 +111,16 @@ const FEEDBACK_ICONS = { success: "✅", fail: "💡", neutral: "✏️" };
 let currentStage = null;
 let inputElements = [];
 
+// Картки надрукували з переплутаними QR-кодами: код зі сторінки 2 має
+// відкривати завдання станції 1 і навпаки, те саме з парою 3 і 4.
+// Тому номер із посилання перекладаємо на номер реального завдання.
+const QR_SWAP = { 1: 2, 2: 1, 3: 4, 4: 3, 5: 5 };
+
 function getStageFromURL() {
   const raw = new URLSearchParams(location.search).get("stage");
   const n = parseInt(raw, 10);
   if (!Number.isInteger(n) || n < 1 || n > STAGES.length) return null;
-  return n;
+  return QR_SWAP[n];
 }
 
 function showScreen(screen) {
